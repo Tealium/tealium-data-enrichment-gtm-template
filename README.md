@@ -4,9 +4,11 @@
 
 This is the Google Tag Manager template for the Tealium Data Enrichment tag.
 
-The Tealium Data Enrichment tag template allows you to enable and configure client-side data enrichment for Tealium's Customer Data Hub (CDH) on your website using Google Tag Manager.  This tag reads server-side attributes for a Visitor and then brings these into Local Storage for use client-side in the web browser.
+The Tealium Data Enrichment tag allows you to enable and configure client-side data enrichment for Tealium's Customer Data Hub (CDH) on your website using Google Tag Manager.  This tag reads server-side attributes for a Visitor and then brings these into Local Storage for use client-side in the web browser.
 
 For more information on Tealium's CDH, please visit [Tealium's Learning Community](https://community.tealiumiq.com/t5/Customer-Data-Hub/Introduction-to-Customer-Data-Hub/ta-p/17571)
+
+For more information on Tealium's Data Layer Enrichment API, please visit [Tealium's Learning Community](https://community.tealiumiq.com/t5/Customer-Data-Hub/Data-Layer-Enrichment-Public-API/ta-p/155)
 
 ## Quickstart Configuration
 
@@ -37,7 +39,7 @@ This checkbox is used if you want to have this tag automatically call dataLayer.
 
 ## Additional Resources
 
-**[Documentation](https://docs.tealium.com/platforms/google-tag-manager/install/)**
+**[Tealium Collect Tag in Google Tag Manager Documentation](https://docs.tealium.com/platforms/google-tag-manager/install/)**
 
 ## Copyright and license
 
