@@ -19,7 +19,7 @@ For more information on Tealium's CDH, please visit [Tealium's Learning Communit
 
 ## Advanced Configuration
 
-Tealium recommends triggering this tag for the built-in All Pages event.  Keep in mind that it may take multiple page views before visitor data enrichment service returns data.  Usually, the first (or second page) writes data to Local Storage and then the third page view will have this information available for client-side use.
+Tealium recommends triggering this tag for the built-in All Pages event.  Keep in mind that it may take multiple page views before visitor data enrichment service returns data.  Usually, the first (or second) page writes data to Local Storage and then the third page view will have this information available for client-side use.
 
 Tealium Data Enrichment tag template also allows for advanced configuration settings:
 
