@@ -19,20 +19,21 @@ For more information on Tealium's CDH, please visit [Tealium's Learning Communit
 
 ## Advanced Configuration
 
-Tealium recommends triggering this tag for the built-in All Pages event.
+Tealium recommends triggering this tag for the built-in All Pages event.  Keep in mind that it may take multiple page views before visitor data enrichment service returns data.  Usually, the first (or second page) writes data to Local Storage and then the third page view will have this information available for client-side use.
 
 Tealium Data Enrichment tag template also allows for advanced configuration settings:
 
 1. First-party endpoint
 
-If your network team has worked with Tealium to configure a first-party data endpoint, then you should use the endpoint here.  Consult your Account Manager or Implementation Engineer for more information.
+If your network team has worked with Tealium to configure a first-party data endpoint, then you should enter the endpoint here.  Consult your Account Manager or Implementation Engineer for more information.
 
-*IMPORTANT*
-For first-party configurations, you will need to edit the tag Template "Permissions" section before you add the tag itself.  Template Editor -> Permissions -> Injects Scripts -> https://https://visitor-service.example.com/\*
+**IMPORTANT**
+
+For first-party configurations, you will need to edit the tag Template "Permissions" section before you add the tag itself (Templates -> Template Editor -> Permissions -> Injects Scripts).
 
 2. Add Enrichment Data to dataLayer 
 
-This checkbox is used if you want to have this tag automatically call dataLayer.push when it finds the enrichment data in Local Storage.  More likely you would use a set of "User Defined Variables" to retreive specific items from Local Storage.  For example, you may want to create specific Variable (Custom JavaScript) that determines if a Badge is true or false.  Then use this Variable as part of another tag's configuration or Trigger.
+This checkbox is used if you want to have this tag automatically call dataLayer.push when it finds the enrichment data in Local Storage.  More likely you would use a set of "User Defined Variables" to retreive specific items from Local Storage.  For example, you may want to create a specific Variable (Custom JavaScript) that determines if a Badge is true or false.  Then use this Variable as part of another tag's configuration or Trigger.
 
 ## Additional Resources
 
