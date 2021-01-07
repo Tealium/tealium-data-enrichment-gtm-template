@@ -83,6 +83,7 @@ const getTimestampMillis = require('getTimestampMillis');
 const JSON = require('JSON');
 const injectScript = require('injectScript');
 const queryPermission = require('queryPermission');
+const encodeUri = require('encodeUri');
 
 log('data =', data);
 // a-z, A-Z, 0-9, and . - for GUIDs and GA cookie id
@@ -159,8 +160,8 @@ const localStoragePrefix = 'tealium_',
     tealium_enrichment_data = readLocalStorage('enrichment_data'),
     visitorId = clean(getVisitorId()),
     timestamp = getTimestampMillis(),
-    url = data.endpoint + '/' + data.tealiumAccount + '/' + data.tealiumProfile + '/' +
-        visitorId + '?callback=tealium_gtm_enrich&rnd=' + timestamp;
+    url = encodeUri(data.endpoint + '/' + data.tealiumAccount + '/' + data.tealiumProfile + '/' +
+        visitorId + '?callback=tealium_gtm_enrich&rnd=' + timestamp);
 
 log("data enrichment url = " + url);
 
@@ -523,6 +524,6 @@ scenarios:
 
 ___NOTES___
 
-Created on 12/21/2020, 1:00:00 PM
+Created on 01/07/2021, 1:00:01 PM
 
 
