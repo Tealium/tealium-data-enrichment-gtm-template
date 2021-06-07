@@ -33,7 +33,11 @@ If your network team has worked with Tealium to configure a first-party data end
 
 For first-party configurations, you will need to edit the tag Template "Permissions" section before you add the tag itself (Templates -> Template Editor -> Permissions -> Injects Scripts).
 
-2. Add Enrichment Data to dataLayer 
+2. Local Storage Key
+
+This is the location where the data will be written to Local Storage in the browser.  There are two options for this key.  Using the default 'tealium_va' option allows Tealium tag partners (when running their tag on the page) to also leverage this data.
+
+3. Add Enrichment Data to dataLayer 
 
 This checkbox is used if you want to have this tag automatically call dataLayer.push when it finds the enrichment data in Local Storage.  More likely you would use a set of "User Defined Variables" to retreive specific items from Local Storage.  For example, you may want to create a specific Variable (Custom JavaScript) that determines if a Badge is true or false.  Then use this Variable as part of another tag's configuration or Trigger.
 
@@ -43,7 +47,7 @@ This checkbox is used if you want to have this tag automatically call dataLayer.
 
 ## Copyright and license
 
-Copyright 2020 Tealium Inc. All rights reserved.
+Copyright 2021 Tealium Inc. All rights reserved.
 
 Licensed under the **[Apache License, Version 2.0][license]** (the "License");
 you may not use this software except in compliance with the License.

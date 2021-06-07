@@ -63,6 +63,25 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
+    "type": "SELECT",
+    "name": "localStorageKey",
+    "displayName": "Local Storage Key",
+    "macrosInSelect": false,
+    "selectItems": [
+      {
+        "value": "tealium_va",
+        "displayValue": "tealium_va"
+      },
+      {
+        "value": "tealium_enrichment_data",
+        "displayValue": "tealium_enrichment_data"
+      }
+    ],
+    "simpleValueType": true,
+    "defaultValue": "tealium_va",
+    "help": "Data will be written to browser Local Storage with this key"
+  },
+  {
     "type": "CHECKBOX",
     "name": "addToDataLayer",
     "checkboxText": "Add Enrichment Data to dataLayer",
@@ -86,6 +105,15 @@ const queryPermission = require('queryPermission');
 const encodeUri = require('encodeUri');
 
 log('data =', data);
+
+var enrichment_location;
+if (data.localStorageKey === "tealium_va") {
+    // The 'tealium_' prefix is added automatically
+    enrichment_location = "va";
+} else {
+    enrichment_location = "enrichment_data";
+}
+
 // a-z, A-Z, 0-9, and . - for GUIDs and GA cookie id
 const validChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-';
 
@@ -157,7 +185,7 @@ const onSuccess = () => {
 };
 
 const localStoragePrefix = 'tealium_',
-    tealium_enrichment_data = readLocalStorage('enrichment_data'),
+    tealium_enrichment_data = readLocalStorage(enrichment_location),
     visitorId = clean(getVisitorId()),
     timestamp = getTimestampMillis(),
     url = encodeUri(data.endpoint + '/' + data.tealiumAccount + '/' + data.tealiumProfile + '/' +
@@ -169,7 +197,7 @@ setInWindow('tealium_gtm_enrich', function(o) {
     // Uses the "tealium_" prefix to write out tealium_enrichment_data
     var str = JSON.stringify(o);
     if (str !== "{}" && str !=="") {
-        writeLocalStorage('enrichment_data', str);
+        writeLocalStorage(enrichment_location, str);
     }
 }, true);
 
@@ -391,6 +419,37 @@ ___WEB_PERMISSIONS___
                   },
                   {
                     "type": 8,
+                    "boolean": true
+                  }
+                ]
+              },
+              { 
+                "type": 3,
+                "mapKey": [
+                  { 
+                    "type": 1,
+                    "string": "key"
+                  },
+                  { 
+                    "type": 1,
+                    "string": "read"
+                  },
+                  { 
+                    "type": 1,
+                    "string": "write"
+                  }
+                ],
+                "mapValue": [
+                  { 
+                    "type": 1,
+                    "string": "tealium_va"
+                  },
+                  { 
+                    "type": 8, 
+                    "boolean": true
+                  },
+                  { 
+                    "type": 8, 
                     "boolean": true
                   }
                 ]
