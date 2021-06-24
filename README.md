@@ -37,9 +37,9 @@ For first-party configurations, you will need to edit the tag Template "Permissi
 
 This is the location where the data will be written to Local Storage in the browser.  There are two options for this key.  Using the default 'tealium_va' option allows Tealium tag partners (when running their tag on the page) to also leverage this data.
 
-3. Add Enrichment Data to dataLayer 
+## Retrieve Values from Local Storage
 
-This checkbox is used if you want to have this tag automatically call dataLayer.push when it finds the enrichment data in Local Storage.  More likely you would use a set of "User Defined Variables" to retreive specific items from Local Storage.  For example, you may want to create a specific Variable (Custom JavaScript) that determines if a Badge is true or false.  Then use this Variable as part of another tag's configuration or Trigger.
+Create "User Defined Variables" in GTM to retreive specific items from Local Storage.  For example, you may want to create a specific Variable (Custom JavaScript) that determines if a Badge is true or false.  Then use this Variable as part of another tag's configuration or Trigger.
 
 ## Additional Resources
 
