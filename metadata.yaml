@@ -15,6 +15,8 @@
 homepage: "https://tealium.com"
 documentation: "https://docs.tealium.com/platforms/google-tag-manager/"
 versions:
+  - sha: 5505748243d7fa926f82d477ee4ddcd8dfda1d9a
+    changeNotes: Remove checkbox to do automatic dataLayer.push
   - sha: 256fb864b913b54657c295ef3b80acc1f136838a
     changeNotes: Add second local storage option
   - sha: 20ac2658ba1d1cba01ec7283843aa65d47a358e8
