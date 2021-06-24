@@ -80,13 +80,6 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "defaultValue": "tealium_va",
     "help": "Data will be written to browser Local Storage with this key"
-  },
-  {
-    "type": "CHECKBOX",
-    "name": "addToDataLayer",
-    "checkboxText": "Add Enrichment Data to dataLayer",
-    "simpleValueType": true,
-    "help": "Add enrichment data to dataLayer automatically with dataLayer.push call.  Leave unchecked if your Tags or Variables will go to Local Storage directly for this data."
   }
 ]
 
@@ -94,7 +87,6 @@ ___TEMPLATE_PARAMETERS___
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const log = require('logToConsole');
-const callInWindow = require('callInWindow');
 const setInWindow = require('setInWindow');
 const getCookieValues = require('getCookieValues');
 const localStorage = require('localStorage');
@@ -201,13 +193,6 @@ setInWindow('tealium_gtm_enrich', function(o) {
     }
 }, true);
 
-// Add to dataLayer directly
-if (tealium_enrichment_data !== null && data.addToDataLayer) {
-    log('Adding enrichment data to dataLayer');
-    let enrichment_obj = JSON.parse(tealium_enrichment_data);
-    callInWindow('dataLayer.push', enrichment_obj);
-}
-
 if (visitorId !== '') {
     if (queryPermission('inject_script', url)) { 
         // CNAMEd endpoint will fail if the Template Permissions are not updated
@@ -291,45 +276,6 @@ ___WEB_PERMISSIONS___
                   {
                     "type": 8,
                     "boolean": true
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  }
-                ]
-              },
-              {
-                "type": 3,
-                "mapKey": [
-                  {
-                    "type": 1,
-                    "string": "key"
-                  },
-                  {
-                    "type": 1,
-                    "string": "read"
-                  },
-                  {
-                    "type": 1,
-                    "string": "write"
-                  },
-                  {
-                    "type": 1,
-                    "string": "execute"
-                  }
-                ],
-                "mapValue": [
-                  {
-                    "type": 1,
-                    "string": "dataLayer.push"
-                  },
-                  {
-                    "type": 8,
-                    "boolean": false
-                  },
-                  {
-                    "type": 8,
-                    "boolean": false
                   },
                   {
                     "type": 8,
@@ -583,6 +529,6 @@ scenarios:
 
 ___NOTES___
 
-Created on 01/07/2021, 1:00:01 PM
+Created on 01/07/2021, 1:00:02 PM
 
 
