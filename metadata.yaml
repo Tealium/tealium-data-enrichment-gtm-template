@@ -15,6 +15,8 @@
 homepage: "https://tealium.com"
 documentation: "https://docs.tealium.com/platforms/google-tag-manager/"
 versions:
+  - sha: 09cb2a709d8b02f6482f23def8ef8889021c8db2
+    changeNotes: Added help text for endpoint and updated inject script permissions for all possible tealiumiq.com endpoint subdomains
   - sha: 5505748243d7fa926f82d477ee4ddcd8dfda1d9a
     changeNotes: Remove checkbox to do automatic dataLayer.push
   - sha: 256fb864b913b54657c295ef3b80acc1f136838a

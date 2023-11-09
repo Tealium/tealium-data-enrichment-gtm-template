@@ -53,6 +53,7 @@ ___TEMPLATE_PARAMETERS___
     "displayName": "Endpoint",
     "simpleValueType": true,
     "defaultValue": "https://visitor-service.tealiumiq.com",
+    "help" : "Visitor Service endpoint. It is recommened to change this to the regional endpoint appropriate to your CDH instance. This will make visitor service much more responsive for visitors who are not near the home AWS region. If entering a domain other than tealiumiq.com, please modify the permissions in the template.",
     "valueValidators": [
       {
         "type": "REGEX",
@@ -424,7 +425,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://visitor-service.tealiumiq.com/*"
+                "string": "https://*.tealiumiq.com/*"
               }
             ]
           }
